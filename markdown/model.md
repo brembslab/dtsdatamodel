@@ -6,15 +6,17 @@ Björn Brembs
 
 License: CC-BY	
 
-1. Data Model
+
+
+# 1. Data Model
 
 The Drosophila Time Series (DTS) Data Model describes single time series experiments which are grouped into projects. Project files contain data items that are exclusively meta-data. The YAML project files contain the grouping information linking each experiment to the project, as well as a project description and experimental comments. These files also contain information about which type of evaluation the project was designed to be used with. Experiment files contain a meta-data header in XML and time series data in CSV.
 
-    1. Data items in Experiment files
+##  1.1. Data items in Experiment files
 
 Data items in experiment files are arranged in classes: Time series (raw data), experiment sequence and experiment (meta-data). The time series class contains continuously recorded values throughout the experiment. The experiment sequence class contains the data pertaining to the different stages or periods of the experiment. These data can be either recorded during the experiment or determined at the beginning of the experiment. The experiment class contains the meta-data for each experiment as stored in the header of each data file.
 
-        1. Definitions
+### 1.1.1. Definitions
 
 <table>
   <tr>
@@ -49,7 +51,7 @@ Data items in experiment files are arranged in classes: Time series (raw data), 
 </table>
 
 
-        1. Data item type "metadata"
+### 1.1.2. Data item type "metadata"
 
 The **metadata** data item contains all the data relevant for the entire experiment. 
 
@@ -105,7 +107,7 @@ The **experiment** *type *"joystick" allows the following additional fields
 
 * A **lighting** field specifying total darkness (0) or white illumination (1).
 
-        2. Data item type "sequence"
+### 1.1.3. Data item type "sequence"
 
 The **sequence** data item describes the different phases or periods of the experiment. It contains a list of periods into which the experiment has been divided. The number of periods is specified at the declaration of the sequence. Each period receives a sequential **number** and a **type**:
 
@@ -139,11 +141,12 @@ outcome	Boolean. Whether an outcome (e.g., heat) was applied or not.
 
 arena	The visual pattern or color shown during the period. Either 0 for none (white) or a number corresponding to the pattern/color in the pattern/color collection (see 3. Arena)
 
-coup_coeff	Coupling coefficient either 0 for no direct coupling or in degrees per second and 10-10Nm
+coup_coeff	Coupling coefficient either 0 for no direct coupling or in degrees per second and 
+10-10Nm
 
 contingency	The condition upon which the outcome is made contingent. Quadrants in angular position (a_pos) are labelled either "1_3_Q" or “2_4_Q” with 1 denoting the quadrant with the zero position in the center. Torque domains are labelled “right_torque” (positive torque values) or “left_torque” (negative torque values) and colors “green” or “blue”.
 
-        3. Data item type "timeseries"
+### 1.1.4. Data item type "timeseries"
 
 The **timeseries** data item contains the raw time series data in CSV, as well as a description of the recorded variables. 
 
@@ -191,19 +194,19 @@ Each variable is described by
 
 The **CSV_data** tags enclose the raw time series data.
 
-    1. Data items in project files
+## 1.2. Data items in project files
 
 Project files reside in the same directory as the data files and contain the experimental design of a project by listing the different data files in the experimental groups. While data files are written by software, these project files are written by humans. As YAML is easier to read for humans than XML, data files are in XML and project files in YAML. The syntax loosely follows the Frictionless Data format at [https://specs.frictionlessdata.io/data-package](https://specs.frictionlessdata.io/data-package)
 
-        1. Data item type: "experiment"
+### 1.2.1. Data item type: "experiment"
 
 Each project file starts with the **type **of the experiment (one of ‘torquemeter’ or ‘joystick’), a disambiguating **id **(SSRN, if available), a machine-readable and URL-usable **name** of the experiment, a free text **title** and a free text **description **of the experiment 
 
-        2. Data item type "licenses"
+### 1.2.2. Data item type "licenses"
 
 The type **licenses** is characterized by a **name** and a **URI** for each license
 
-        3. Data item type "author"
+### 1.2.3. Data item type "author"
 
 The **author **of the project file is contained in the following fields:
 
@@ -217,7 +220,7 @@ lastName	last name
 
 id	ORCID identifier (may be empty)
 
-        4. Data item type "resources"
+### 1.2.4. Data item type "resources"
 
 The **resources **contain the list(s) of the filenames in each experimental group. Each group is charatcerized by the following fields:
 
@@ -231,7 +234,7 @@ description	Free text describing the kind of experimental group, i.e., "experime
 
 data	list of file names (incl. .xml extension) with each name in a separate line. Comment character ‘#’.
 
-        5. Data item type "statistics"
+### 1.2.5. Data item type "statistics"
 
 The data item type **statistics **contains the information which statistical tests to perform and several important parameters to be set by the user prior to statistical analysis. It is defined by the following fields:
 
@@ -249,23 +252,22 @@ two.groups	Collects some parameters for testing two groups against each other fo
 
 three.groups	Collect parameters for a pair of two-group tests. Only defined for exactly three experimental groups, with one group ‘resources/descriptions" containing "test” or “experimental”. In this case, the test/experimental group is tested against each of the other two groups.  The **title **is a short free-text field, **description **is a free-text description of the test(s) performed, **power **specifies if the post-hoc statistical power calculation should be done with the first group expected to be higher (‘greater’) or lower (‘less’) than the second group, or two-sided (‘two.sided’). The **data field **is a boolean  (0: FALSE, 1: TRUE) of whether the analyses should be performed.
 
-        6. Data item type "mediatype"
+### 1.2.6. Data item type "mediatype"
 
 Descriptor of media type. Either  text/csv/xml or text/yaml
-
-        7. Data item type "finished"
+### 1.2.7. Data item type "finished"
 
 Empty field. Presence or absence indicates that the project is concluded or not and is used to create a permanent identifier when published.
 
-        8. Data item type "epid"
+### 1.2.8. Data item type "epid"
 
 Integer value that is created automatically by the synchronization procedure that publishes the projects.
 
-2. Values for the ‘arena’ parameter in data files
+# 2. Values for the ‘arena’ parameter in data files
 
-    2. Patterns
+## 2.1. Patterns
 
-## The left edge of the patterns denotes -180° of a_pos, the center 0° and the right edge 180°. Default color for patterns 1 through 6 is a white background (RGB: 255,255,255, hex#ffffff). The numbers for each case correspond to the integer values entered in the ‘arena’ field of the ‘sequence’ data type in data files.
+The left edge of the patterns denotes -180° of a_pos, the center 0° and the right edge 180°. Default color for patterns 1 through 6 is a white background (RGB: 255,255,255, hex#ffffff). The numbers for each case correspond to the integer values entered in the ‘arena’ field of the ‘sequence’ data type in data files.
 
 During interchanges between color and visual patterns the background color should always be reset to a white background (RGB: 255,255,255, hex#ffffff)
 
@@ -301,7 +303,7 @@ Green: #2; Blue: #3
 
 Daylight: #4
 
-    1. Colors
+## 2.2. Colors
 
 Catalogue of colors used in time series experiments as referenced in ‘patterns’ above. Colors are given in spectra and in RGB/Hex codes. 
 
@@ -316,4 +318,3 @@ Catalogue of colors used in time series experiments as referenced in ‘patterns
 ![image alt text](image_5.png)
 
 Spectra of Green (#2) and Blue (#3) coloration as measured in the arena.
-
