@@ -1,4 +1,4 @@
-# "The *Drosophila* Time Series Data Model"
+# The *Drosophila* Time Series Data Model
 
 Release 0.1
 
