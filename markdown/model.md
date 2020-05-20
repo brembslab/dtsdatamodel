@@ -1,4 +1,22 @@
-The *Drosophila* Time Series Data Model
+---
+title: "The *Drosophila* Time Series Data Model"
+output: 
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+---
+<style type="text/css">
+  body .main-container {
+    max-width: 1800px !important;
+  }
+  h1.title {
+  font-size: 38px;
+  color: DarkRed;
+  text-align: center;
+}
+</style>
+
 
 Release 0.1
 
