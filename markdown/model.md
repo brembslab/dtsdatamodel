@@ -1,11 +1,3 @@
----
-title: "The *Drosophila* Time Series Data Model"
-output: 
-  html_document:
-    number_sections: true
-    toc: true
-    toc_float: true
----
 <style type="text/css">
   body .main-container {
     max-width: 1800px !important;
@@ -17,6 +9,7 @@ output:
 }
 </style>
 
+# "The *Drosophila* Time Series Data Model"
 
 Release 0.1
 
