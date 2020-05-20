@@ -1,14 +1,3 @@
-<style type="text/css">
-  body .main-container {
-    max-width: 1800px !important;
-  }
-  h1.title {
-  font-size: 38px;
-  color: DarkRed;
-  text-align: center;
-}
-</style>
-
 # "The *Drosophila* Time Series Data Model"
 
 Release 0.1
