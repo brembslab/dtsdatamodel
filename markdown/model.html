@@ -1710,7 +1710,7 @@ An ordered collection of items. Corresponding data structures in programming lan
 <p>The <strong>resources </strong>contain the list(s) of the filenames in each experimental group. Each group is charatcerized by the following fields:</p>
 <p>name An identifier string. Lower case characters with ., _, - and / are allowed. This is ideally a url-usable and human-readable name</p>
 <p>title Free text of the fly strain used</p>
-<p>id comma-separated FlyBase IDs or empty if no ID</p>
+<p>id The flybase ID for single stocks, comma-separated IDs for multiple elements/crosses or ‘none’ for no ID.</p>
 <p>description Free text describing the kind of experimental group, i.e., “experimental”, “control” or variants thereof. In a typical three-group scenario, identical descriptions of two groups will lead to pooling of data in these groups. Use of “test” or “experimental” for one of the groups will lead to statistical comparison of this group against both others.</p>
 <p>data list of file names (incl. .xml extension) with each name in a separate line. Comment character ‘#’.</p>
 </div>

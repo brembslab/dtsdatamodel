@@ -247,7 +247,7 @@ name	An identifier string. Lower case characters with ., _, - and / are allowed.
 
 title	Free text of the fly strain used
 
-id	comma-separated FlyBase IDs or empty if no ID
+id	The flybase ID for single stocks, comma-separated IDs for multiple elements/crosses or ‘none’ for no ID.
 
 description	Free text describing the kind of experimental group, i.e., "experimental", “control” or variants thereof. In a typical three-group scenario, identical descriptions of two groups will lead to pooling of data in these groups. Use of “test” or “experimental” for one of the groups will lead to statistical comparison of this group against both others.
 
