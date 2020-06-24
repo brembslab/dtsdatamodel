@@ -98,17 +98,13 @@ An **experiment_metadata** data item contains the following fields:
 
     * **orcid **(possibly empty)
 
-* A **fly** field with the *types *"strain" or “cross”
+* A **fly** field
 
     * A **name** field. An identifier string. Lower case characters with ., _, - and / are allowed. This is ideally a url-usable and human-readable name, unique for each fly
 
     * A free text **description** of the fly strain
 
-    * A **flybase** field with the flybase ID for the stock (for "strain").
-
-    * An **m_parent** field with the flybase ID for the male parent (for "cross")
-
-    * An **f_parent** field with the flybase ID for the male parent (for "cross")
+    * A **flybase** field with the flybase ID for single stocks, comma-separated IDs for multiple elements/crosses or ‘none’ for no ID.
 
 * An **experiment** field with the *type *of either "torquemeter", or “joystick” with
 
